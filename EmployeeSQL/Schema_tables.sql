@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS Employees;
 DROP TABLE IF EXISTS Salaries;
 DROP TABLE IF EXISTS Titles;
 
---Create tables with corect primary and foreign keys
+--Create tables with correct primary and foreign keys
 --Import csv files into correct tables 
 
 CREATE TABLE "Departments" (
@@ -22,7 +22,7 @@ CREATE TABLE "Departments" (
 );
 
 CREATE TABLE "Dept_Emp" (
-    "emp_no" VARCHAR   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
     "dept_no" VARCHAR   NOT NULL,
     "from_date" date   NOT NULL,
     "to_date" date   NOT NULL
@@ -30,13 +30,13 @@ CREATE TABLE "Dept_Emp" (
 
 CREATE TABLE "Dept_Manager" (
     "dept_no" VARCHAR   NOT NULL,
-    "emp_no" VARCHAR   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
     "from_date" date   NOT NULL,
     "to_date" date   NOT NULL
 );
 
 CREATE TABLE "Employees" (
-    "emp_no" VARCHAR   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
     "birth_date" date   NOT NULL,
     "first_name" VARCHAR   NOT NULL,
     "last_name" VARCHAR   NOT NULL,
@@ -48,14 +48,14 @@ CREATE TABLE "Employees" (
 );
 
 CREATE TABLE "Salaries" (
-    "emp_no" VARCHAR   NOT NULL,
-    "salary" VARCHAR   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
+    "salary" INTEGER   NOT NULL,
     "from_date" date   NOT NULL,
     "to_date" date   NOT NULL
 );
 
 CREATE TABLE "Titles" (
-    "emp_no" VARCHAR   NOT NULL,
+    "emp_no" INTEGER   NOT NULL,
     "title" VARCHAR   NOT NULL,
     "from_date" date   NOT NULL,
     "to_date" date   NOT NULL
@@ -78,4 +78,3 @@ REFERENCES "Employees" ("emp_no");
 
 ALTER TABLE "Titles" ADD CONSTRAINT "fk_Titles_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "Employees" ("emp_no");
-
